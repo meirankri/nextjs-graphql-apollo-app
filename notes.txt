@@ -1,0 +1,16 @@
+ssr le code est rendu dans le serveur puis envoyé
+au client le html complet donc les robot de scrawl
+vois le html normal, contrairement a react seul,
+ou react charge le html une fois la page chargé
+grace au javascript donc un crawler qui n'a pas js ne verra
+pas le contenue de la page.
+
+static side rendering : fait que le contenue de toutes les sont prechargé dés
+qu'on va sur le site puis quand on tape la requete ex :/contact il renvoie le contenue
+html qu'il a deja en memoire donc c'est très rapide
+
+quand ya getInitialProps dans une page le static rendering est desactivé
+et si ya getInitialProps dans _app.js cest tout le site qui n'a plus le static
+
+no configuration: pas besoin de definir les routes
+hot reloading
