@@ -1,7 +1,6 @@
 import React from 'react'
 
  const PortfolioCard  = ({portfolio}) =>{
-
   return (
 
       <div className="card subtle-shadow no-border">
@@ -13,7 +12,7 @@ import React from 'react'
           </p>
           </div>
           <div className="card-footer no-border">
-              <small className="text-muted"> {portfolio.startDate} - {portfolio.endData} </small>
+              <small className="text-muted"> {portfolio.startDate} - {portfolio.endDate} </small>
           </div>
       </div>
 

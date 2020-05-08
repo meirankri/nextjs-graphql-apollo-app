@@ -4,9 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from "@/components/shared/Navbar"
 import Hero from "@/components/shared/Hero";
 
-
-
-
 // first component to be executed before all pages of the pages
 // this code is executed on the server
 const MyApp = ({Component, pageProps}) =>{

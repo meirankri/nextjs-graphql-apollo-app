@@ -27,6 +27,8 @@ query Portfolios {
     location
     jobTitle
     description
+    startDate
+    endDate
   }
 }
 `
@@ -39,8 +41,8 @@ mutation CreatePortfolio {
     location: "New Location"
     jobTitle: "New Job Title"
     description: "New Desc"
-    startDate: "12/12/2012"
-    endDate: "14/11/2013"
+    startDate: "2012-12-12t23:59Z"
+    endDate: "2013-11-14t23:59Z"
   }) {
     _id,
     title,
@@ -52,4 +54,33 @@ mutation CreatePortfolio {
     startDate
     endDate
   }
+}`
+export const UPDATE_PORTFOLIO = gql`
+  mutation UpdatePortfolio($id: ID) {
+    updatePortfolio(id: $id, input: {
+      title: "Update Job"
+        company: "update Company"
+        companyWebsite: "update Website"
+        location: "update Location"
+        jobTitle: "update Job Title"
+        description: "update Desc"
+        startDate: "2012-12-12t23:59Z"
+        endDate: "2013-11-14t23:59Z"
+
+    }){
+      _id
+      title
+      company
+      companyWebsite
+      location
+      jobTitle
+      description
+      startDate
+        endDate
+    }
+  }
+`
+export const DELETE_PORTFOLIO = gql`
+mutation deletePortfolio($id: ID) {
+  deletePortfolio(id: $id)
 }`

@@ -1,20 +1,12 @@
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { GET_PORTFOLIO } from '@/apollo/queries';
-import { useState , useEffect } from 'react';
 import withApollo from '@/hoc/withApollo';
+import { getDataFromTree } from '@apollo/react-ssr';
+
 
 const PortfolioDetail = ({query}) => {
-  const [portfolio, setPortfolio] = useState(null)
-  const [getPortfolio , {loading , data}]  = useLazyQuery(GET_PORTFOLIO);
-
-  useEffect(()=>{
-    getPortfolio({variables: {id: query.id}})
-  },[])
-
-  if (data && !portfolio) {
-    setPortfolio(data.portfolio)
-  }
-  if (loading || !portfolio) {return 'Loading...'}
+  const {data}  = useQuery(GET_PORTFOLIO, {variables : {id: query.id}});
+  const portfolio = data && data.portfolio || {};
 
   return (
     <div className="portfolio-detail">
@@ -63,4 +55,4 @@ PortfolioDetail.getInitialProps = async ({query}) => {
 
 
 
-export default withApollo(PortfolioDetail);
+export default withApollo(PortfolioDetail, {getDataFromTree});
